@@ -1,0 +1,37 @@
+extends layout
+
+script(src='http://code.jquery.com/jquery-3.3.1.js')
+script(src='"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+script(src="../routes/test.js")
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  button(class="btn",onclick='getAvailableBeacons()') Find nearby Beacons
+  p #{beaconsAvailable}
+
+  t Name    
+  input(type="text",name= "name", id="name")
+  p
+  t UUID    
+  input(type="text",name= "uuid", id="uuid")
+  p
+  t Major   
+  input(type="text",name= "major", id="major")
+  p
+  t Sound   
+  input(type="text",name= "sound", id="sound")
+
+  p 
+  button(class="btn",onclick='addBeacon()') ADD
+
+  p Added Beacons: #{beaconsList}
+  
+  p Sound Check
+  p #{soundsAvailable}
+  t Sound 1 
+  button(class="btn",onclick='playSound()') PLAY
+
+script.
+  getBeacons()
